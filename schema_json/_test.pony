@@ -9,10 +9,11 @@ actor Main is TestList
 
 	fun tag tests(test: PonyTest) =>
 		test(_Test1)
+		test(_Test2)
 
 
 class iso _Test1 is UnitTest
-	fun name(): String => "test 1"
+	fun name(): String => "test 1 - simple object"
 
 	fun apply(h: TestHelper) =>
 		try
@@ -31,4 +32,24 @@ class iso _Test1 is UnitTest
 				)
 		else
 			h.complete(false)
-		end	
+		end
+
+class iso _Test2 is UnitTest
+	fun name(): String => "test 2 - root array"
+
+	fun apply(h: TestHelper) =>
+		try
+			let jsonString = recover val FileExt.fileToString("test2.json")? end
+
+		    let doc: JsonDoc = JsonDoc
+		    doc.parse(jsonString)?
+	
+			let words = Words(doc.data as JsonArray)			
+			h.complete(
+					(words(0)? == "cat") and 
+					(words(1)? == "dog") and 
+					(words(2)? == "bunny")
+				)
+		else
+			h.complete(false)
+		end

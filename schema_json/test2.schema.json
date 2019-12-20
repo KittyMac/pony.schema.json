@@ -1,0 +1,5 @@
+{
+  "title": "Words",
+  "type": "array",
+  "items": { "type": "string" }
+}
