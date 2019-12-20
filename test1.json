@@ -1,5 +1,7 @@
 {
   "firstName": "John",
   "lastName": "Doe",
-  "age": 21
+  "age": 21,
+  "height": 5.2,
+  "married": true
 }

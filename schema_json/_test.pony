@@ -22,7 +22,13 @@ class iso _Test1 is UnitTest
 		    doc.parse(jsonString)?
 			
 			let person = Person(doc.data as JsonObject)			
-			h.complete((person.firstName == "John") and (person.lastName == "Doe") and (person.age == 21))
+			h.complete(
+					(person.firstName == "John") and 
+					(person.lastName == "Doe") and 
+					(person.age == 21) and
+					(person.height == 5.2) and
+					(person.married == true)
+				)
 		else
 			h.complete(false)
 		end	
