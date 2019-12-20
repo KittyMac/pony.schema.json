@@ -1,0 +1,30 @@
+[
+	{
+		"name": "Robot",
+		"limited": false,
+		"materials": [
+			"plastic",
+			"steel"
+		],
+		"parts": [
+			"arm",
+			"leg",
+			"head"
+		]
+	},
+	{
+		"name": "Doll",
+		"limited": true,
+		"materials": [
+			"cloth",
+			"stuffing",
+			"button"
+		],
+		"parts": [
+			"hair",
+			"head",
+			"body"
+		],
+		"size":99
+	}	
+]

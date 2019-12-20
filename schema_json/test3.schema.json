@@ -1,0 +1,23 @@
+{
+	"title": "Toys",
+	"type": "array",
+	"items": {
+		"title": "Toy",
+		"type": "object",
+		"properties": {
+			"name": { "type": "string" },
+			"limited": { "type": "boolean" },
+			"materials": { 
+				"type": "array",
+				"items": { "type": "string" }
+			},
+			"parts": { 
+				"type": "array",
+				"items": { "type": "string" }
+			},
+			"size": {
+				"type": "integer"
+			}
+		}
+	}
+}
