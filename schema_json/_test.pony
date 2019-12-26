@@ -19,17 +19,25 @@ class iso _Test1 is UnitTest
 	fun apply(h: TestHelper) =>
 		try
 			let jsonString = recover val FileExt.fileToString("test1.json")? end
-		
-		    let doc: JsonDoc = JsonDoc
-		    doc.parse(jsonString)?
 			
-			let person = Person(doc.data as JsonObject)			
+			// read it, write it, read it again then test if true
+		    let doc1 = JsonDoc
+		    doc1.parse(jsonString)?
+			let person1 = Person(doc1.data as JsonObject)
+			let person1JSON:String val = person1.string()
+			
+		    let doc2 = JsonDoc
+		    doc2.parse(person1JSON)?
+			let person2 = Person(doc2.data as JsonObject)
+			
+			h.env.out.print(person2.string())
+			
 			h.complete(
-					(person.firstName == "John") and 
-					(person.lastName == "Doe") and 
-					(person.age == 21) and
-					(person.height == 5.2) and
-					(person.married == true)
+					(person2.firstName == "John") and 
+					(person2.lastName == "Doe") and 
+					(person2.age == 21) and
+					(person2.height == 5.2) and
+					(person2.married == true)
 				)
 		else
 			h.complete(false)
@@ -41,15 +49,23 @@ class iso _Test2 is UnitTest
 	fun apply(h: TestHelper) =>
 		try
 			let jsonString = recover val FileExt.fileToString("test2.json")? end
-
-		    let doc: JsonDoc = JsonDoc
-		    doc.parse(jsonString)?
-	
-			let words = Words(doc.data as JsonArray)			
+			
+			// read it, write it, read it again then test if true
+		    let doc1 = JsonDoc
+		    doc1.parse(jsonString)?
+			let words1 = Words(doc1.data as JsonArray)
+			let words1JSON:String val = words1.string()
+			
+		    let doc2 = JsonDoc
+		    doc2.parse(words1JSON)?
+			let words2 = Words(doc2.data as JsonArray)
+			
+			h.env.out.print(words2.string())
+			
 			h.complete(
-					(words(0)? == "cat") and 
-					(words(1)? == "dog") and 
-					(words(2)? == "bunny")
+					(words2(0)? == "cat") and 
+					(words2(1)? == "dog") and 
+					(words2(2)? == "bunny")
 				)
 		else
 			h.complete(false)
@@ -61,14 +77,22 @@ class iso _Test3 is UnitTest
 	fun apply(h: TestHelper) =>
 		try
 			let jsonString = recover val FileExt.fileToString("test3.json")? end
-
-		    let doc: JsonDoc = JsonDoc
-		    doc.parse(jsonString)?
-
-			let toys = Toys(doc.data as JsonArray)
-			let toy1 = toys(0)?
-			let toy2 = toys(1)?
 			
+			// read it, write it, read it again then test if true
+		    let doc1 = JsonDoc
+		    doc1.parse(jsonString)?
+			let toys1 = Toys(doc1.data as JsonArray)
+			let toys1JSON:String val = toys1.string()
+			
+		    let doc2 = JsonDoc
+		    doc2.parse(toys1JSON)?
+			let toys2 = Toys(doc2.data as JsonArray)
+			
+			h.env.out.print(toys2.string())
+			
+			let toy1 = toys2(0)?
+			let toy2 = toys2(1)?
+						
 			h.complete(
 					(toy1.name == "Robot") and (toy1.limited == false) and 
 					(toy1.materials(0)? == "plastic") and (toy1.materials(1)? == "steel") and
