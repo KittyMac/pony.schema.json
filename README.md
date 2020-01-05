@@ -4,7 +4,11 @@
 
 ### Purpose
 
-At the time of this writing, Pony includes a basic JSON parsing library but does not include any support for annotating classes or 
+At the time of this writing, Pony includes a basic JSON parsing library but does not include any support for annotating classes or other fancy serialization support for JSON.
+
+My fork of Pony includes the concept of source file translation, meaning you can drop the source of a support language into your Pony project and it will automatically be transpiled into Pony. For JSON, this means you can add a JSON Schema file and it will compile into equivalent Pony classes capabile of serializing and deserializing themselves.
+
+Note: This repository is here for providing examples and testing the JSON transpiling feature in [my fork of Pony](https://github.com/KittyMac/ponyc/tree/roc_master).  Nothing in this repo is required to use the JSON transpiling feature itself, that's compiled into ponyc.
 
 ## License
 
