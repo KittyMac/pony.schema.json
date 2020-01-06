@@ -21,14 +21,8 @@ class iso _Test1 is UnitTest
 			let jsonString = recover val FileExt.fileToString("test1.json")? end
 			
 			// read it, write it, read it again then test if true
-		    let doc1 = JsonDoc
-		    doc1.parse(jsonString)?
-			let person1 = Person(doc1.data as JsonObject)
-			let person1JSON:String val = person1.string()
-			
-		    let doc2 = JsonDoc
-		    doc2.parse(person1JSON)?
-			let person2 = Person(doc2.data as JsonObject)
+			let person1 = Person.fromString(jsonString)?
+			let person2 = Person.fromString(person1.string())?
 			
 			h.env.out.print(person2.string())
 			
@@ -51,15 +45,8 @@ class iso _Test2 is UnitTest
 			let jsonString = recover val FileExt.fileToString("test2.json")? end
 			
 			// read it, write it, read it again then test if true
-		    let doc1 = JsonDoc
-		    doc1.parse(jsonString)?
-			let words1 = Words(doc1.data as JsonArray)
-			let words1JSON:String val = words1.string()
-			
-		    let doc2 = JsonDoc
-		    doc2.parse(words1JSON)?
-			let words2 = Words(doc2.data as JsonArray)
-			
+			let words1 = Words.fromString(jsonString)?
+			let words2 = Words.fromString(words1.string())?
 			h.env.out.print(words2.string())
 			
 			h.complete(
@@ -78,15 +65,8 @@ class iso _Test3 is UnitTest
 		try
 			let jsonString = recover val FileExt.fileToString("test3.json")? end
 			
-			// read it, write it, read it again then test if true
-		    let doc1 = JsonDoc
-		    doc1.parse(jsonString)?
-			let toys1 = Toys(doc1.data as JsonArray)
-			let toys1JSON:String val = toys1.string()
-			
-		    let doc2 = JsonDoc
-		    doc2.parse(toys1JSON)?
-			let toys2 = Toys(doc2.data as JsonArray)
+			let toys1 = Toys.fromString(jsonString)?
+			let toys2 = Toys.fromString(toys1.string())?
 			
 			h.env.out.print(toys2.string())
 			
