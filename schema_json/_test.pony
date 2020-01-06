@@ -11,6 +11,7 @@ actor Main is TestList
 		test(_Test1)
 		test(_Test2)
 		test(_Test3)
+		test(_Test4)
 
 
 class iso _Test1 is UnitTest
@@ -88,3 +89,19 @@ class iso _Test3 is UnitTest
 		else
 			h.complete(false)
 		end
+
+
+class iso _Test4 is UnitTest
+	fun name(): String => "test 4 - default values"
+
+	fun apply(h: TestHelper) =>
+		// values are supplied as the default values in the schema
+		let person = Person.empty()
+
+		h.complete(
+				(person.firstName == "Jane") and 
+				(person.lastName == "Doe") and 
+				(person.age == 16) and
+				(person.height == 5.5) and
+				(person.married == false)
+			)

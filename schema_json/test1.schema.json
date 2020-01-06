@@ -6,24 +6,29 @@
   "properties": {
     "firstName": {
       "type": "string",
+	  "default": "Jane",
       "description": "The person's first name."
     },
     "lastName": {
       "type": "string",
+	  "default": "Doe",
       "description": "The person's last name."
     },
     "age": {
       "description": "Age in years which must be equal to or greater than zero.",
       "type": "integer",
+	  "default": "16",
       "minimum": 0
     },
     "height": {
       "description": "Height in inches",
-      "type": "number"
+      "type": "number",
+	  "default": "5.5",
     },
     "married": {
       "description": "Whether this person is married or not",
-      "type": "boolean"
+      "type": "boolean",
+	  "default": "false"
     }
   }
 }
