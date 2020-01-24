@@ -10,6 +10,8 @@ My fork of Pony includes the concept of source file translation, meaning you can
 
 Note: This repository is here for providing examples and testing the JSON transpiling feature in [my fork of Pony](https://github.com/KittyMac/ponyc/tree/roc_master).  Nothing in this repo is required to use the JSON transpiling feature itself, that's compiled into ponyc.
 
+Note: In the same concept, I have now added transpiling of simple text-based resources to [my fork of Pony](https://github.com/KittyMac/ponyc/tree/roc_master). This example has been updated such that the test .json files make use of this new feature (note that we don't need to load any of these strings in from file, they are automatically compiled as primitives)
+
 ## License
 
 pony.flow is free software distributed under the terms of the MIT license, reproduced below. pony.flow may be used for any purpose, including commercial purposes, at absolutely no cost. No paperwork, no royalties, no GNU-like "copyleft" restrictions. Just download and enjoy.

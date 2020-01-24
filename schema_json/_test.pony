@@ -1,6 +1,4 @@
 use "ponytest"
-use "fileExt"
-use "stringExt"
 use "json"
 
 actor Main is TestList
@@ -19,10 +17,8 @@ class iso _Test1 is UnitTest
 
 	fun apply(h: TestHelper) =>
 		try
-			let jsonString = recover val FileExt.fileToString("test1.json")? end
-			
 			// read it, write it, read it again then test if true
-			let person1 = Person.fromString(jsonString)?
+			let person1 = Person.fromString(Test1Json())?
 			let person2 = Person.fromString(person1.string())?
 			
 			h.env.out.print(person2.string())
@@ -43,10 +39,8 @@ class iso _Test2 is UnitTest
 
 	fun apply(h: TestHelper) =>
 		try
-			let jsonString = recover val FileExt.fileToString("test2.json")? end
-			
 			// read it, write it, read it again then test if true
-			let words1 = Words.fromString(jsonString)?
+			let words1 = Words.fromString(Test2Json())?
 			let words2 = Words.fromString(words1.string())?
 			h.env.out.print(words2.string())
 			
@@ -64,9 +58,7 @@ class iso _Test3 is UnitTest
 
 	fun apply(h: TestHelper) =>
 		try
-			let jsonString = recover val FileExt.fileToString("test3.json")? end
-			
-			let toys1 = Toys.fromString(jsonString)?
+			let toys1 = Toys.fromString(Test3Json())?
 			let toys2 = Toys.fromString(toys1.string())?
 			
 			h.env.out.print(toys2.string())
